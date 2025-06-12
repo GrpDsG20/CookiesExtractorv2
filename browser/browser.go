@@ -5,11 +5,11 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/GrpDsG20/CookiesExtractorv2/browser/chromium"
 	"github.com/GrpDsG20/CookiesExtractorv2/browser/firefox"
 	"github.com/GrpDsG20/CookiesExtractorv2/browserdata"
-	"github.com/GrpDsG20/CookiesExtractorv2/chromium"
-	"github.com/GrpDsG20/CookiesExtractorv2/fileutil"
 	"github.com/GrpDsG20/CookiesExtractorv2/log"
+	"github.com/GrpDsG20/CookiesExtractorv2/utils/fileutil"
 	"github.com/GrpDsG20/CookiesExtractorv2/utils/typeutil"
 )
 
