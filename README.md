@@ -71,11 +71,11 @@ Based on Apple's security policy, some browsers **require a current user passwor
 | Firefox Nightly    |    ✅     |   ✅    |    ✅     |    ✅    |
 
 
-### Instalación
+## Instalación
 La instalación de CookiesExtractorv2 es muy sencilla:
 Descarga el proyecto o clona el repositorio
 
-# Clona tu repositorio
+### Clona tu repositorio
 git clone https://github.com/GrpDsG20/CookiesExtractorv2
 
 Configura tu bot de Telegram:
