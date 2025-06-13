@@ -1,10 +1,10 @@
 <h1>CookiesExtractorv2</h1>
 CookiesExtractorv2 es una herramienta desarrollada en Go diseñada para extraer datos sensibles de navegadores web (contraseñas, historial, cookies, marcadores, tarjetas de crédito, historial de descargas, localStorage y extensiones). A diferencia de la herramienta base, esta versión opera de forma discreta en segundo plano, recolecta los datos extraídos y los envía automáticamente a un bot de Telegram configurado. Soporta los navegadores más populares en Windows, macOS y Linux, e incluye mecanismos para su persistencia y ocultamiento en el sistema objetivo.
-<div> "" </div> 
 
-`Esta herramienta es una modificación del proyecto original HackBrowserData y ha sido configurada para operar de manera autónoma, recolectando datos de navegación y enviándolos a un destino remoto (Telegram). Su uso implica la extracción y transmisión de información sensible del sistema donde se ejecuta.`
+### IMPORTANTE
+>Esta herramienta es una modificación del proyecto original HackBrowserData y ha sido configurada para operar de manera autónoma, recolectando datos de navegación y enviándolos a un destino remoto (Telegram). Su uso implica la extracción y transmisión de información sensible del sistema donde se ejecuta.
 
-Esta herramienta está destinada EXCLUSIVAMENTE para fines de investigación de seguridad y pruebas de penetración ÉTICAS en entornos controlados y con el CONSENTIMIENTO EXPLÍCITO Y DOCUMENTADO del propietario del sistema. Cualquier uso no autorizado de este software para acceder, recopilar o exfiltrar datos sin el permiso expreso del propietario del sistema es ILEGAL y NO ÉTICO. El autor y los contribuidores no asumen ninguna responsabilidad legal o moral por cualquier uso indebido o ilegal de esta herramienta.
+>Esta herramienta está destinada EXCLUSIVAMENTE para fines de investigación de seguridad y pruebas de penetración ÉTICAS en entornos controlados y con el CONSENTIMIENTO EXPLÍCITO Y DOCUMENTADO del propietario del sistema. Cualquier uso no autorizado de este software para acceder, recopilar o exfiltrar datos sin el permiso expreso del propietario del sistema es ILEGAL y NO ÉTICO. El autor y los contribuidores no asumen ninguna responsabilidad legal o moral por cualquier uso indebido o ilegal de esta herramienta.
 
 ### Navegadores Compatibles
 
