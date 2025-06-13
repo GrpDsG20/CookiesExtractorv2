@@ -32,9 +32,6 @@ CookiesExtractorv2 es una herramienta desarrollada en Go diseñada para extraer 
 
 
 ### MacOS
-
-Based on Apple's security policy, some browsers **require a current user password** to decrypt.
-
 | Browser            | Password | Cookie | Bookmark | History |
 |:-------------------|:--------:|:------:|:--------:|:-------:|
 | Google Chrome      |    ✅     |   ✅    |    ✅     |    ✅    |
